@@ -1,0 +1,26 @@
+order_id,customer_name,product,category,quantity,unit_price,status,order_date
+1001, Alice Johnson,Wireless Mouse,electronics,2,$12.99,completed,2026-01-08
+1002,Bob Smith ,Laptop Stand,Electronics,1,34.99,completed,2026-01-08
+1003,Carol White,USB Hub,ELECTRONICS,3,$9.99,completed,2026-01-09
+1004,David Lee,Webcam,electronics,,49.99,completed,2026-01-09
+1005, Emma Davis,Keyboard,Electronics,1,$24.99,cancelled,2026-01-10
+1006,Frank Brown,Monitor,electronics,1,$189.99,completed,2026-01-10
+1007,Grace Wilson ,Laptop Stand,Electronics,2,34.99,completed,2026-01-11
+1008,Henry Moore,Wireless Mouse,ELECTRONICS,1,$12.99,cancelled,2026-01-11
+1009,Isla Taylor,USB Hub,electronics,4,$9.99,completed,2026-01-12
+1010, Jack Anderson,Webcam,Electronics,2,,completed,2026-01-12
+1011,Kate Thomas,Headphones,Electronics,1,$39.99,completed,2026-01-13
+1012,Leo Jackson,Keyboard,electronics,3,$24.99,completed,2026-01-13
+1013, Mia White,Monitor,ELECTRONICS,1,$189.99,cancelled,2026-01-14
+1014,Noah Harris,Wireless Mouse,Electronics,2,$12.99,completed,2026-01-14
+1015,Olivia Martin ,USB Hub,electronics,2,$9.99,completed,2026-01-15
+1016,Paul Thompson,Headphones,Electronics,1,$39.99,completed,2026-01-15
+1017,Quinn Garcia,Laptop Stand,ELECTRONICS,1,34.99,completed,2026-01-16
+1018, Rose Martinez,Keyboard,electronics,2,$24.99,cancelled,2026-01-16
+1019,Sam Robinson,Monitor,Electronics,1,$189.99,completed,2026-01-17
+1020,Tina Clark,Webcam,electronics,1,$49.99,completed,2026-01-17
+1021,Uma Lewis,Wireless Mouse,Electronics,3,$12.99,completed,2026-01-18
+1022,Victor Lee,USB Hub,ELECTRONICS,,,$9.99,completed,2026-01-18
+1023, Wendy Walker,Headphones,electronics,2,$39.99,completed,2026-01-19
+1024,Xavier Hall ,Keyboard,Electronics,1,$24.99,cancelled,2026-01-19
+1025,Yara Allen,Monitor,electronics,1,$189.99,completed,2026-01-20
