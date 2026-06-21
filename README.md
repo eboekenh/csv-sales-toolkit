@@ -1,96 +1,141 @@
-# CSV Sales Toolkit — Day 1: Visual CSV Cleaner
+# CSV Sales Toolkit — Days 1, 2 & 3
 
-A visual desktop app for cleaning messy CSV sales data, built with Python, Tkinter, and pandas.
+A 3-day Python project series for building a complete CSV sales data pipeline: clean, analyze, and batch-process sales CSVs using Python, Tkinter, and pandas.
 
-Part of the **CSV Sales Toolkit** series (Days 1–3) from [Daily Python Projects](https://dailypythonprojects.substack.com/).
+Part of the **CSV Sales Toolkit** series from [Daily Python Projects](https://dailypythonprojects.substack.com/).
 
 ---
 
-## What It Does
+## Repository Structure
 
+```
+csv-sales-toolkit-day1/
+├── data/
+│   ├── orders_raw.csv          # Messy sample data (Day 1 input)
+│   └── orders_clean.csv        # Cleaned sample data (Day 2 & 3 input)
+├── csv_cleaner.py              # Day 1 — Visual CSV Cleaner (solution)
+├── csv_cleaner_skeleton.py     # Day 1 — Practice skeleton with guided TODOs
+├── analyze_sales.py            # Day 2 — Sales Analyzer & Report
+├── batch_processor.py          # Day 3 — Batch CSV Processor
+├── requirements.txt            # Python dependencies
+└── README.md
+```
+
+---
+
+## Day 1 — Visual CSV Cleaner
+
+A desktop GUI app that loads a messy sales CSV, cleans it with a button click, and saves the result.
+
+**File:** `csv_cleaner.py`
+
+**What it does:**
 - Loads a raw orders CSV and displays it in a scrollable table
 - Cleans data on a button click:
   - Strips whitespace from text columns
   - Standardizes category names to Title Case
   - Standardizes order status to lowercase
-  - Removes `$` signs and converts prices to numbers
+  - Removes `$` signs and converts prices to floats
   - Converts quantity to whole numbers
-  - Fills missing values sensibly (quantity → 1, price → category average)
+  - Fills missing values (quantity → 1, price → category average)
   - Adds a calculated `total_price` column
 - Shows a status log of what was cleaned
 - Saves the cleaned data to a new CSV
 
+**Run:**
+```bash
+python csv_cleaner.py
+```
+
+**Practice version:** `csv_cleaner_skeleton.py` — guided skeleton with TODO comments for self-study.
+
 ---
 
-## Project Structure
+## Day 2 — Sales Analyzer & Report
 
+A console script that reads the cleaned CSV and generates a full sales performance report.
+
+**File:** `analyze_sales.py`
+
+**What it does:**
+- Reads `data/orders_clean.csv`
+- Calculates total revenue, order count, and average order value
+- Breaks down revenue and quantity by product category
+- Identifies top 5 products by revenue
+- Flags cancelled orders and calculates cancellation rate
+- Prints a formatted summary report to the terminal
+
+**Run:**
+```bash
+python analyze_sales.py
 ```
-csv-sales-toolkit-day1/
-├── csv_cleaner.py          # Full solution
-├── csv_cleaner_skeleton.py # Skeleton with comment guides for practice
-├── orders_raw.csv          # Sample messy data (download separately)
-├── README.md
-└── .gitignore
+
+---
+
+## Day 3 — Batch CSV Processor
+
+A batch processing script that automatically cleans and analyzes multiple CSV files in a folder.
+
+**File:** `batch_processor.py`
+
+**What it does:**
+- Scans a folder for all `.csv` files
+- Applies the same cleaning logic from Day 1 to each file
+- Generates a per-file summary report
+- Saves each cleaned file with a `_clean` suffix
+- Produces a combined summary across all processed files
+
+**Run:**
+```bash
+python batch_processor.py
 ```
+
+> By default it processes all CSVs in the `data/` folder. Edit the `INPUT_FOLDER` variable at the top of the file to point to a different directory.
 
 ---
 
 ## Setup
 
-### Requirements
+### 1. Clone the repo
+```bash
+git clone https://github.com/eboekenh/csv-sales-toolkit-day1.git
+cd csv-sales-toolkit-day1
+```
 
-- Python 3.x (Tkinter ships with Python)
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run any day
+```bash
+python csv_cleaner.py       # Day 1
+python analyze_sales.py     # Day 2
+python batch_processor.py   # Day 3
+```
+
+---
+
+## Requirements
+
+- Python 3.8+
 - pandas
+- tkinter (included with standard Python)
 
-```bash
-pip install pandas
-```
-
-### Run
-
-```bash
-python csv_cleaner.py
-```
-
-Then click **Load CSV**, select `orders_raw.csv`, click **Clean Data**, and finally **Save Clean CSV**.
-
-> Download the sample `orders_raw.csv` file [here](https://drive.google.com/file/d/1REpTTz5lzXhXh5fW6vtT3yms3X9jBKRp/view?usp=sharing).
+See `requirements.txt` for full dependency list.
 
 ---
 
-## Key Concepts Covered
+## Series Articles
 
-| Concept | Detail |
-|---|---|
-| Class-based Tkinter app | `self.df` shared across all methods |
-| `ttk.Treeview` | Table widget for displaying DataFrames |
-| `filedialog` | Open/save file picker dialogs |
-| `.str.strip()` / `.str.title()` / `.str.lower()` | Column-wide string operations |
-| `pd.to_numeric(..., errors='coerce')` | Text to numbers, bad values → NaN |
-| `groupby().transform('mean')` | Fill missing prices with category average |
-| `to_csv(index=False)` | Save without junk index column |
+| Day | Topic | Link |
+|-----|-------|------|
+| 1 | Visual CSV Cleaner | [Read on Substack](https://dailypythonprojects.substack.com/) |
+| 2 | Sales Analyzer & Report | [Read on Substack](https://dailypythonprojects.substack.com/) |
+| 3 | Batch CSV Processor | [Read on Substack](https://dailypythonprojects.substack.com/) |
 
 ---
 
-## Data Problems Solved
+## License
 
-| Problem | Example | Fix |
-|---|---|---|
-| Whitespace | `" Alice Johnson"` | `.str.strip()` |
-| Inconsistent categories | `electronics`, `ELECTRONICS` | `.str.title()` |
-| Inconsistent status | `COMPLETED`, `Completed` | `.str.lower()` |
-| Currency symbols | `$12.99` | `.str.replace('$', '')` |
-| Missing quantity | empty cell | fill with `1` |
-| Missing price | empty cell | fill with category average |
-
----
-
-## Series
-
-- **Day 1:** Visual CSV Cleaner ← you are here
-- **Day 2:** Sales Analyzer & Report
-- **Day 3:** Batch CSV Processor
-
----
-
-*Source: [Daily Python Projects — Build a CSV Sales Toolkit](https://dailypythonprojects.substack.com/p/build-a-csv-sales-toolkit-day-1-csv)*
+MIT — free to use and modify for learning purposes.
